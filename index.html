@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Score Checker</title>
+  <style>
+    body { font-family: Arial; text-align: center; background-color: #ffe6e6; }
+    input, button { padding: 10px; margin: 10px; }
+    .result { font-size: 24px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <h1>❤️ Love Score Checker ❤️</h1>
+  <input type="text" id="name1" placeholder="Your Name">
+  <input type="text" id="name2" placeholder="Crush's Name">
+  <br>
+  <button onclick="checkLove()">Check Love Score</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function checkLove() {
+      const name1 = document.getElementById("name1").value;
+      const name2 = document.getElementById("name2").value;
+
+      if (!name1 || !name2) {
+        document.getElementById("result").innerText = "Please enter both names!";
+        return;
+      }
+
+      // Simple random score logic
+      const score = Math.floor(Math.random() * 101);
+      let message = `💘 ${name1} and ${name2}'s Love Score is: ${score}% 💘`;
+
+      if (score > 80) message += "\nYou're a perfect match!";
+      else if (score > 50) message += "\nYou have good chemistry!";
+      else message += "\nMight need to work on the spark!";
+
+      document.getElementById("result").innerText = message;
+    }
+  </script>
+
+</body>
+</html>
